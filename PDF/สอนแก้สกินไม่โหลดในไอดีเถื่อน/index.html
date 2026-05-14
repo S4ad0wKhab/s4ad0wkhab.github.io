@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
 <meta charset="UTF-8">
 
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Image Viewer</title>
+<title>Viewer</title>
 
 <style>
 
 body{
     margin:0;
     background:black;
+    text-align:center;
 }
 
 img{
     width:100%;
-    display:block;
+    max-width:900px;
+}
+
+button{
+    padding:12px 20px;
+    margin:10px;
+    font-size:18px;
 }
 
 </style>
@@ -25,11 +33,39 @@ img{
 
 <body>
 
-<img src="1.png">
-<img src="2.png">
-<img src="3.png">
-<img src="4.png">
-<img src="5.png">
+<img id="viewer" src="1.png">
+
+<br>
+
+<button onclick="prev()">ก่อนหน้า</button>
+
+<button onclick="next()">ถัดไป</button>
+
+<script>
+
+let page = 1;
+
+function next(){
+
+    if(page < 5){
+        page++;
+    }
+
+    document.getElementById("viewer")
+    .src = page + ".png";
+}
+
+function prev(){
+
+    if(page > 1){
+        page--;
+    }
+
+    document.getElementById("viewer")
+    .src = page + ".png";
+}
+
+</script>
 
 </body>
 </html>
